@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>Shaheen Design — Salla Store Design Packages | باقات تصميم متاجر سلة</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Marcellus&family=Manrope:wght@300;400;500;600&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0E0E11;
+    --smoke: #1A1A1F;
+    --gold: #B8935A;
+    --gold-light: #D4B889;
+    --cream: #F1ECDF;
+    --cream-deep: #E8E1CF;
+    --paper: #FAF7F0;
+    --muted: #8C8678;
+    --hairline: rgba(184, 147, 90, 0.25);
+    --shadow-soft: 0 1px 2px rgba(14,14,17,0.04), 0 8px 24px rgba(14,14,17,0.04);
+    --shadow-elev: 0 2px 8px rgba(14,14,17,0.06), 0 24px 48px rgba(14,14,17,0.08);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: 'Tajawal', 'Manrope', sans-serif; font-weight: 400; -webkit-font-smoothing: antialiased; line-height: 1.6; overflow-x: hidden; }
+
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  /* TOP BAR */
+  .topbar { padding: 24px 0; border-bottom: 1px solid var(--hairline); }
+  .topbar-inner { display: flex; justify-content: space-between; align-items: center; }
+  .topbar .brand { display: flex; align-items: center; gap: 14px; }
+  .topbar .brand svg { width: 36px; height: 34px; }
+  .topbar .brand .name { font-family: 'Marcellus'; font-size: 18px; letter-spacing: 5px; color: var(--ink); }
+  .topbar .brand .ar { font-family: 'Reem Kufi'; font-size: 14px; color: var(--gold); margin-right: 8px; }
+  .topbar .meta { font-family: 'Manrope'; font-size: 10px; letter-spacing: 4px; color: var(--muted); text-transform: uppercase; }
+
+  /* HERO */
+  .hero { padding: 100px 0 80px; text-align: center; position: relative; }
+  .hero .eyebrow { font-family: 'Manrope'; font-size: 11px; letter-spacing: 8px; color: var(--gold); text-transform: uppercase; margin-bottom: 24px; }
+  .hero h1 { font-family: 'Marcellus'; font-size: clamp(36px, 5vw, 56px); letter-spacing: 6px; color: var(--ink); margin-bottom: 18px; line-height: 1.1; }
+  .hero h1 .ar { display: block; font-family: 'Reem Kufi'; font-weight: 500; font-size: clamp(28px, 4vw, 42px); letter-spacing: 2px; color: var(--gold); margin-top: 14px; }
+  .hero .lead { font-family: 'Cormorant Garamond'; font-style: italic; font-size: clamp(18px, 2vw, 22px); color: var(--muted); max-width: 640px; margin: 28px auto 0; line-height: 1.5; }
+  .hero .lead-ar { font-family: 'Tajawal'; font-style: normal; font-weight: 300; font-size: 17px; color: var(--ink); max-width: 640px; margin: 18px auto 0; line-height: 1.8; }
+
+  .hero .ornament { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 40px; }
+  .hero .ornament .l { width: 60px; height: 1px; background: var(--gold); display: block; }
+  .hero .ornament span { font-family: 'Manrope'; font-size: 10px; letter-spacing: 6px; color: var(--gold); }
+
+  /* PHILOSOPHY */
+  .philosophy { padding: 60px 0 40px; text-align: center; }
+  .philosophy .quote { font-family: 'Cormorant Garamond'; font-style: italic; font-size: clamp(22px, 2.5vw, 30px); color: var(--ink); max-width: 760px; margin: 0 auto; line-height: 1.5; }
+  .philosophy .quote-ar { font-family: 'Reem Kufi'; font-style: normal; font-weight: 400; font-size: clamp(20px, 2.2vw, 26px); color: var(--gold); max-width: 720px; margin: 18px auto 0; line-height: 1.7; }
+  .philosophy .credit { font-family: 'Manrope'; font-size: 10px; letter-spacing: 6px; color: var(--muted); margin-top: 28px; text-transform: uppercase; }
+
+  /* SECTION HEADER */
+  .section { padding: 80px 0; }
+  .section-head { text-align: center; margin-bottom: 60px; }
+  .section-head .num { font-family: 'Marcellus'; font-size: 13px; color: var(--gold); letter-spacing: 3px; margin-bottom: 14px; }
+  .section-head h2 { font-family: 'Marcellus'; font-size: clamp(26px, 3vw, 36px); letter-spacing: 5px; color: var(--ink); text-transform: uppercase; }
+  .section-head h2 .ar { display: block; font-family: 'Reem Kufi'; font-weight: 500; font-size: clamp(20px, 2.4vw, 26px); letter-spacing: 1px; color: var(--gold); margin-top: 10px; }
+  .section-head .sub { font-family: 'Cormorant Garamond'; font-style: italic; font-size: 17px; color: var(--muted); margin-top: 16px; }
+
+  /* PACKAGES GRID */
+  .packages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 40px; }
+  .pkg { background: white; border: 1px solid rgba(14, 14, 17, 0.06); border-radius: 4px; padding: 44px 32px; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; }
+  .pkg:hover { transform: translateY(-4px); box-shadow: var(--shadow-elev); }
+  .pkg.featured { background: var(--ink); color: var(--cream); border-color: var(--ink); transform: scale(1.02); box-shadow: var(--shadow-elev); }
+  .pkg.featured:hover { transform: scale(1.02) translateY(-4px); }
+
+  .pkg .badge { position: absolute; top: -12px; right: 50%; transform: translateX(50%); background: var(--gold); color: var(--ink); font-family: 'Manrope'; font-size: 9px; font-weight: 600; letter-spacing: 4px; padding: 6px 16px; border-radius: 2px; text-transform: uppercase; }
+
+  .pkg .pkg-name { font-family: 'Marcellus'; font-size: 24px; letter-spacing: 4px; color: var(--ink); text-transform: uppercase; }
+  .pkg.featured .pkg-name { color: var(--cream); }
+  .pkg .pkg-name-ar { font-family: 'Reem Kufi'; font-weight: 500; font-size: 16px; color: var(--gold); margin-top: 8px; letter-spacing: 1px; }
+
+  .pkg .pkg-desc { font-family: 'Cormorant Garamond'; font-style: italic; font-size: 16px; color: var(--muted); margin-top: 16px; min-height: 50px; line-height: 1.4; }
+  .pkg.featured .pkg-desc { color: rgba(241, 236, 223, 0.7); }
+
+  .pkg .price-line { margin: 28px 0 6px; padding-top: 24px; border-top: 1px solid var(--hairline); display: flex; align-items: baseline; justify-content: center; gap: 6px; }
+  .pkg.featured .price-line { border-top-color: rgba(184, 147, 90, 0.35); }
+  .pkg .price { font-family: 'Marcellus'; font-size: 48px; color: var(--ink); letter-spacing: 1px; }
+  .pkg.featured .price { color: var(--cream); }
+  .pkg .currency { font-family: 'Manrope'; font-size: 12px; color: var(--muted); letter-spacing: 4px; text-transform: uppercase; }
+
+  .pkg .price-note { font-family: 'Cormorant Garamond'; font-style: italic; font-size: 14px; color: var(--muted); text-align: center; margin-bottom: 28px; }
+
+  .pkg .deliverables { list-style: none; padding: 24px 0; border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); flex: 1; }
+  .pkg.featured .deliverables { border-color: rgba(184, 147, 90, 0.25); }
+  .pkg .deliverables li { padding: 11px 0; font-family: 'Tajawal'; font-size: 14px; font-weight: 400; color: var(--ink); display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; border-bottom: 1px dotted rgba(184, 147, 90, 0.15); }
+  .pkg.featured .deliverables li { color: rgba(241, 236, 223, 0.92); border-bottom-color: rgba(184, 147, 90, 0.15); }
+  .pkg .deliverables li:last-child { border-bottom: none; }
+  .pkg .deliverables li::before { content: '✓'; color: var(--gold); font-weight: 600; font-size: 13px; margin-top: 1px; flex-shrink: 0; }
+
+  .pkg .timeline-row { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--hairline); display: flex; justify-content: space-between; font-family: 'Manrope'; font-size: 10px; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; }
+  .pkg.featured .timeline-row { border-top-color: rgba(184, 147, 90, 0.25); color: rgba(241, 236, 223, 0.55); }
+  .pkg .timeline-row strong { color: var(--ink); font-weight: 500; }
+  .pkg.featured .timeline-row strong { color: var(--gold); }
+
+  .pkg .cta { margin-top: 20px; padding: 16px; background: var(--gold); color: var(--ink); text-align: center; font-family: 'Manrope'; font-size: 11px; font-weight: 600; letter-spacing: 5px; text-transform: uppercase; border-radius: 2px; cursor: pointer; transition: background 0.2s; }
+  .pkg .cta:hover { background: var(--gold-light); }
+  .pkg.featured .cta { background: var(--gold); color: var(--ink); }
+
+  /* PROCESS */
+  .process { background: var(--cream); padding: 100px 0; margin: 60px 0; }
+  .process-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 60px; position: relative; }
+  .process-step { text-align: center; position: relative; padding: 28px 16px; }
+  .process-step .num { font-family: 'Marcellus'; font-size: 56px; color: var(--gold); opacity: 0.3; line-height: 1; margin-bottom: 16px; }
+  .process-step .title { font-family: 'Marcellus'; font-size: 16px; letter-spacing: 3px; color: var(--ink); text-transform: uppercase; margin-bottom: 6px; }
+  .process-step .title-ar { font-family: 'Reem Kufi'; font-size: 14px; color: var(--gold); margin-bottom: 14px; font-weight: 500; }
+  .process-step .desc { font-family: 'Tajawal'; font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+  /* COMPARISON TABLE */
+  .compare { padding: 60px 0; }
+  .compare-table { width: 100%; background: white; border: 1px solid rgba(14, 14, 17, 0.06); border-radius: 4px; overflow: hidden; }
+  .compare-table table { width: 100%; border-collapse: collapse; }
+  .compare-table th, .compare-table td { padding: 18px 20px; text-align: center; border-bottom: 1px solid rgba(184, 147, 90, 0.1); font-family: 'Tajawal'; font-size: 13px; }
+  .compare-table th:first-child, .compare-table td:first-child { text-align: right; font-family: 'Reem Kufi'; font-weight: 500; font-size: 14px; color: var(--ink); }
+  .compare-table thead th { background: var(--ink); color: var(--cream); font-family: 'Marcellus'; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; padding: 22px 20px; }
+  .compare-table thead th:first-child { background: var(--cream); color: var(--ink); font-family: 'Reem Kufi'; }
+  .compare-table thead th .small { display: block; font-family: 'Manrope'; font-size: 10px; letter-spacing: 4px; color: var(--gold); margin-top: 4px; font-weight: 400; }
+  .compare-table tbody tr:last-child td { border-bottom: 0; }
+  .compare-table tbody tr:hover { background: var(--cream); }
+  .compare-table .check { color: var(--gold); font-size: 16px; font-weight: 600; }
+  .compare-table .dash { color: rgba(140, 134, 120, 0.4); }
+  .compare-table .featured-col { background: rgba(184, 147, 90, 0.04); }
+
+  /* ADDONS */
+  .addons { padding: 80px 0; background: var(--cream-deep); }
+  .addons-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 50px; }
+  .addon { background: white; padding: 28px 24px; border-radius: 4px; border: 1px solid rgba(14, 14, 17, 0.04); display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  .addon .name { font-family: 'Tajawal'; font-size: 14px; font-weight: 500; color: var(--ink); flex: 1; }
+  .addon .name .sub { display: block; font-family: 'Manrope'; font-size: 10px; letter-spacing: 2px; color: var(--muted); margin-top: 4px; font-weight: 400; text-transform: uppercase; }
+  .addon .price { font-family: 'Marcellus'; font-size: 22px; color: var(--gold); }
+  .addon .price .unit { font-family: 'Manrope'; font-size: 10px; color: var(--muted); letter-spacing: 2px; margin-right: 4px; }
+
+  /* WHY */
+  .why { padding: 80px 0; }
+  .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 60px; }
+  .why-item { text-align: center; padding: 28px 16px; }
+  .why-item .icon { font-family: 'Marcellus'; font-size: 28px; color: var(--gold); margin-bottom: 16px; }
+  .why-item h4 { font-family: 'Marcellus'; font-size: 14px; letter-spacing: 3px; color: var(--ink); text-transform: uppercase; margin-bottom: 6px; }
+  .why-item h4 .ar { display: block; font-family: 'Reem Kufi'; font-weight: 500; font-size: 13px; color: var(--gold); margin-top: 4px; letter-spacing: 1px; }
+  .why-item p { font-family: 'Tajawal'; font-size: 12px; color: var(--muted); line-height: 1.7; margin-top: 12px; }
+
+  /* FAQ */
+  .faq { padding: 80px 0; background: white; }
+  .faq-grid { max-width: 880px; margin: 50px auto 0; }
+  .faq-item { padding: 28px 0; border-bottom: 1px solid var(--hairline); }
+  .faq-item:last-child { border-bottom: 0; }
+  .faq-item .q { font-family: 'Reem Kufi'; font-weight: 500; font-size: 17px; color: var(--ink); display: flex; align-items: flex-start; gap: 12px; cursor: pointer; }
+  .faq-item .q::before { content: 'Q'; font-family: 'Marcellus'; font-size: 15px; color: var(--gold); flex-shrink: 0; }
+  .faq-item .a { font-family: 'Tajawal'; font-size: 14px; color: var(--muted); line-height: 1.8; padding-top: 14px; padding-right: 28px; }
+
+  /* CTA */
+  .cta-final { background: var(--ink); color: var(--cream); padding: 100px 0; text-align: center; }
+  .cta-final h3 { font-family: 'Marcellus'; font-size: clamp(28px, 4vw, 40px); letter-spacing: 5px; text-transform: uppercase; margin-bottom: 14px; }
+  .cta-final h3 .ar { display: block; font-family: 'Reem Kufi'; font-weight: 500; font-size: clamp(20px, 2.6vw, 26px); color: var(--gold); margin-top: 14px; letter-spacing: 2px; }
+  .cta-final p { font-family: 'Cormorant Garamond'; font-style: italic; font-size: 18px; color: rgba(241, 236, 223, 0.7); max-width: 600px; margin: 24px auto 40px; }
+  .cta-final .btn { display: inline-block; background: var(--gold); color: var(--ink); padding: 18px 48px; font-family: 'Manrope'; font-size: 12px; font-weight: 600; letter-spacing: 5px; text-transform: uppercase; border-radius: 2px; cursor: pointer; transition: background 0.2s; text-decoration: none; }
+  .cta-final .btn:hover { background: var(--gold-light); }
+  .cta-final .contact { margin-top: 40px; font-family: 'Manrope'; font-size: 11px; letter-spacing: 4px; color: rgba(241, 236, 223, 0.5); text-transform: uppercase; }
+
+  /* FOOTER */
+  footer { background: var(--smoke); color: rgba(241, 236, 223, 0.6); padding: 40px 0; text-align: center; }
+  footer .mini { font-family: 'Manrope'; font-size: 9px; letter-spacing: 6px; color: var(--gold); text-transform: uppercase; }
+  footer .small { font-family: 'Tajawal'; font-size: 12px; margin-top: 10px; }
+
+  /* WHATSAPP FLOATING BUTTON */
+  .wa-float {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    width: 62px;
+    height: 62px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35), 0 2px 6px rgba(0,0,0,0.08);
+    z-index: 1000;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .wa-float:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45), 0 4px 10px rgba(0,0,0,0.1);
+  }
+  .wa-float svg {
+    width: 32px;
+    height: 32px;
+    fill: white;
+    position: relative;
+    z-index: 2;
+  }
+  .wa-float::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: #25D366;
+    animation: wa-pulse 2.5s infinite;
+    z-index: 1;
+  }
+  @keyframes wa-pulse {
+    0% { transform: scale(1); opacity: 0.7; }
+    100% { transform: scale(1.6); opacity: 0; }
+  }
+
+  /* CTA AS LINKS */
+  .pkg .cta {
+    text-decoration: none;
+    display: block;
+  }
+
+  /* TABLET & SMALL DESKTOP */
+  @media (max-width: 1024px) {
+    .packages { grid-template-columns: 1fr; gap: 20px; max-width: 460px; margin-left: auto; margin-right: auto; }
+    .pkg.featured { transform: scale(1); }
+    .pkg.featured:hover { transform: translateY(-4px); }
+    .process-grid { grid-template-columns: repeat(2, 1fr); }
+    .addons-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); }
+    .compare-table { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .compare-table table { min-width: 680px; }
+  }
+
+  /* MOBILE */
+  @media (max-width: 720px) {
+    .wrap { padding: 0 18px; }
+
+    /* TOPBAR */
+    .topbar { padding: 16px 0; }
+    .topbar .brand svg { width: 30px; height: 28px; }
+    .topbar .brand .name { font-size: 14px; letter-spacing: 3px; }
+    .topbar .brand .ar { font-size: 12px; margin-right: 6px; }
+    .topbar .meta { display: none; }
+
+    /* HERO */
+    .hero { padding: 50px 0 30px; }
+    .hero .eyebrow { font-size: 10px; letter-spacing: 4px; margin-bottom: 18px; }
+    .hero h1 { font-size: 26px; letter-spacing: 2px; }
+    .hero h1 .ar { font-size: 22px; letter-spacing: 1px; margin-top: 12px; }
+    .hero .lead { font-size: 16px; margin-top: 22px; padding: 0 4px; }
+    .hero .lead-ar { font-size: 14px; line-height: 1.75; padding: 0 4px; }
+    .hero .ornament { gap: 12px; margin-top: 28px; }
+    .hero .ornament .l { width: 38px; }
+    .hero .ornament span { font-size: 9px; letter-spacing: 4px; }
+
+    /* PHILOSOPHY */
+    .philosophy { padding: 30px 0 20px; }
+    .philosophy .quote { font-size: 18px; padding: 0 8px; }
+    .philosophy .quote-ar { font-size: 16px; padding: 0 8px; }
+    .philosophy .credit { font-size: 9px; letter-spacing: 4px; margin-top: 22px; }
+
+    /* SECTIONS */
+    .section { padding: 50px 0; }
+    .section-head { margin-bottom: 36px; }
+    .section-head .num { font-size: 12px; }
+    .section-head h2 { font-size: 22px; letter-spacing: 3px; }
+    .section-head h2 .ar { font-size: 17px; margin-top: 8px; }
+    .section-head .sub { font-size: 15px; padding: 0 12px; }
+
+    /* PACKAGES */
+    .packages { gap: 28px; max-width: 100%; }
+    .pkg { padding: 36px 24px; }
+    .pkg .badge { font-size: 8px; letter-spacing: 3px; padding: 5px 14px; }
+    .pkg .pkg-name { font-size: 22px; letter-spacing: 3px; }
+    .pkg .pkg-name-ar { font-size: 15px; }
+    .pkg .pkg-desc { font-size: 15px; min-height: auto; }
+    .pkg .price { font-size: 44px; }
+    .pkg .currency { font-size: 11px; letter-spacing: 3px; }
+    .pkg .deliverables li { font-size: 13px; padding: 10px 0; }
+    .pkg .timeline-row { font-size: 9px; letter-spacing: 2px; }
+    .pkg .cta { padding: 15px; font-size: 10px; letter-spacing: 4px; }
+
+    /* PROCESS */
+    .process { padding: 50px 0; margin: 30px 0; }
+    .process-grid { grid-template-columns: 1fr; gap: 8px; margin-top: 32px; }
+    .process-step { padding: 24px 16px; text-align: center; border-bottom: 1px solid var(--hairline); }
+    .process-step:last-child { border-bottom: 0; }
+    .process-step .num { font-size: 42px; margin-bottom: 8px; }
+    .process-step .title { font-size: 14px; letter-spacing: 2px; }
+    .process-step .title-ar { font-size: 13px; margin-bottom: 8px; }
+
+    /* COMPARE */
+    .compare { padding: 30px 0; }
+    .compare-table th, .compare-table td { padding: 12px 10px; font-size: 11px; }
+    .compare-table th:first-child, .compare-table td:first-child { font-size: 12px; }
+    .compare-table thead th { font-size: 11px; padding: 14px 10px; letter-spacing: 2px; }
+    .compare-table thead th .small { font-size: 8px; letter-spacing: 2px; }
+
+    /* ADDONS */
+    .addons { padding: 50px 0; }
+    .addons-grid { grid-template-columns: 1fr; gap: 10px; margin-top: 36px; }
+    .addon { padding: 20px 18px; }
+    .addon .name { font-size: 13px; }
+    .addon .name .sub { font-size: 9px; letter-spacing: 1.5px; }
+    .addon .price { font-size: 22px; }
+
+    /* WHY */
+    .why { padding: 50px 0; }
+    .why-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 36px; }
+    .why-item { padding: 24px 18px; text-align: right; display: flex; gap: 14px; align-items: flex-start; background: white; border: 1px solid rgba(14,14,17,0.04); border-radius: 4px; }
+    .why-item .icon { font-size: 20px; margin-bottom: 0; flex-shrink: 0; line-height: 1.4; }
+    .why-item h4 { font-size: 13px; letter-spacing: 2px; }
+    .why-item h4 .ar { font-size: 12px; margin-top: 3px; }
+    .why-item p { margin-top: 8px; font-size: 12px; line-height: 1.7; }
+
+    /* FAQ */
+    .faq { padding: 50px 0; }
+    .faq-item { padding: 22px 0; }
+    .faq-item .q { font-size: 14px; line-height: 1.5; }
+    .faq-item .q::before { font-size: 13px; }
+    .faq-item .a { font-size: 13px; padding-right: 22px; padding-top: 12px; }
+
+    /* CTA FINAL */
+    .cta-final { padding: 60px 0; }
+    .cta-final h3 { font-size: 24px; letter-spacing: 3px; }
+    .cta-final h3 .ar { font-size: 19px; letter-spacing: 1px; margin-top: 12px; }
+    .cta-final p { font-size: 16px; margin: 20px auto 28px; padding: 0 16px; }
+    .cta-final .btn { padding: 15px 26px; font-size: 10px; letter-spacing: 3px; }
+    .cta-final .contact { font-size: 10px; letter-spacing: 3px; }
+
+    /* FOOTER */
+    footer { padding: 28px 0; }
+
+    /* WHATSAPP FLOAT */
+    .wa-float { width: 54px; height: 54px; bottom: 18px; left: 18px; }
+    .wa-float svg { width: 28px; height: 28px; }
+  }
+
+  /* SMALL PHONES */
+  @media (max-width: 420px) {
+    .hero h1 { font-size: 23px; letter-spacing: 1.5px; }
+    .hero h1 .ar { font-size: 19px; }
+    .section-head h2 { font-size: 19px; letter-spacing: 2px; }
+    .section-head h2 .ar { font-size: 15px; }
+    .pkg { padding: 30px 20px; }
+    .pkg .price { font-size: 38px; }
+    .cta-final h3 { font-size: 21px; letter-spacing: 2px; }
+    .compare-table table { min-width: 580px; }
+    .compare-table th, .compare-table td { padding: 10px 8px; font-size: 10px; }
+    .compare-table thead th { font-size: 10px; padding: 12px 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="topbar-inner">
+      <div class="brand">
+        <svg viewBox="0 0 232 220" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(4, 10)">
+            <path fill="#0E0E11" d="M 50 40 C 80 18 132 18 158 30 C 174 38 180 52 180 72 L 180 90 C 178 100 172 106 160 110 L 146 118 C 130 126 110 126 94 122 C 74 118 58 130 48 148 C 40 164 32 186 28 200 L 10 200 L 6 184 C 4 140 10 90 26 62 C 32 52 40 46 50 40 Z"/>
+            <path fill="#0E0E11" d="M 158 68 C 188 74 214 88 224 112 L 216 106 C 202 100 180 102 162 104 L 150 116 Z"/>
+            <circle cx="138" cy="62" r="5" fill="#B8935A"/>
+            <circle cx="138" cy="62" r="2" fill="#0E0E11"/>
+          </g>
+        </svg>
+        <div>
+          <span class="name">SHAHEEN</span>
+          <span class="ar">شاهين</span>
+        </div>
+      </div>
+      <div class="meta">Salla Store · Design Packages</div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">شاهين ديزاين · Salla Design Atelier</div>
+    <h1>
+      Salla Store Packages
+      <span class="ar">باقات تصميم متاجر سلة</span>
+    </h1>
+    <p class="lead">"Premium aesthetic. Accessible craft. Stores that earn the next click."</p>
+    <p class="lead-ar">باقات مدروسة لتجار سلة الذين يريدون متجراً بحسّ لاكشري دون تكلفة الاستوديوهات الكبرى. نأخذ قوالب سلة الجاهزة ونحوّلها لتجربة تليق ببراند راقي.</p>
+    <div class="ornament"><span class="l"></span><span>EST · KSA · 2025</span><span class="l"></span></div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy">
+  <div class="wrap">
+    <p class="quote">"A storefront is the first handshake. We make it count."</p>
+    <p class="quote-ar">"الواجهة هي السلام الأول مع عميلك. نحرص أن يكون سلاماً يُذكر."</p>
+    <div class="credit">— THE SHAHEEN APPROACH</div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="section" id="packages">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="num">01</div>
+      <h2>The Packages<span class="ar">الباقات</span></h2>
+      <p class="sub">Three considered tiers. Pick what fits your stage.</p>
+    </div>
+
+    <div class="packages">
+      <!-- STARTER -->
+      <div class="pkg">
+        <div class="pkg-name">Starter</div>
+        <div class="pkg-name-ar">المبتدئ</div>
+        <p class="pkg-desc">"For a polished launch — refined, fast, on-brand."</p>
+        <div class="price-line">
+          <span class="price">390</span>
+          <span class="currency">SAR · ريال</span>
+        </div>
+        <p class="price-note">شامل الضريبة · One-time fee</p>
+        <ul class="deliverables">
+          <li>تركيب قالب سلة مختار من قوالبنا</li>
+          <li>تخصيص ألوان البراند الأساسية</li>
+          <li>رفع وتنسيق الشعار</li>
+          <li>ضبط الصفحة الرئيسية + من نحن + تواصل</li>
+          <li>فحص توافق الجوال</li>
+          <li>1 بانر رئيسي للهوم</li>
+          <li>إرشادات استخدام مختصرة (1 صفحة)</li>
+        </ul>
+        <div class="timeline-row">
+          <span><strong>3 أيام</strong> · DELIVERY</span>
+          <span><strong>1 جولة</strong> · REVISIONS</span>
+        </div>
+        <a href="https://wa.me/966596198999?text=السلام%20عليكم%20أبغى%20باقة%20Starter%20بـ%20390%20ر.س%20لتصميم%20متجر%20سلة" target="_blank" rel="noopener" class="cta">ابدأ الآن · Start</a>
+      </div>
+
+      <!-- REFINED (FEATURED) -->
+      <div class="pkg featured">
+        <div class="badge">الأكثر اختياراً · Recommended</div>
+        <div class="pkg-name">Refined</div>
+        <div class="pkg-name-ar">المتميّز</div>
+        <p class="pkg-desc">"Custom polish. A brand world that feels intentional."</p>
+        <div class="price-line">
+          <span class="price">990</span>
+          <span class="currency">SAR · ريال</span>
+        </div>
+        <p class="price-note">شامل الضريبة · One-time fee</p>
+        <ul class="deliverables">
+          <li>كل ما في باقة Starter</li>
+          <li>تخصيص CSS متقدم على الثيم</li>
+          <li>تصميم Hero رئيسي مخصص للهوم</li>
+          <li>تخصيص كرت المنتج (Product Card)</li>
+          <li>5 قوالب بوست انستقرام</li>
+          <li>2 بانر إيميل + 2 بانر إعلاني</li>
+          <li>دليل ألوان + خطوط البراند (2 صفحة)</li>
+          <li>إرشادات تصوير المنتج (1 صفحة)</li>
+        </ul>
+        <div class="timeline-row">
+          <span><strong>5 أيام</strong> · DELIVERY</span>
+          <span><strong>2 جولات</strong> · REVISIONS</span>
+        </div>
+        <a href="https://wa.me/966596198999?text=السلام%20عليكم%20أبغى%20باقة%20Refined%20بـ%20990%20ر.س%20لتصميم%20متجر%20سلة" target="_blank" rel="noopener" class="cta">ابدأ الآن · Start</a>
+      </div>
+
+      <!-- ROYAL -->
+      <div class="pkg">
+        <div class="pkg-name">Royal</div>
+        <div class="pkg-name-ar">الملكي</div>
+        <p class="pkg-desc">"A full brand world — store, social, packaging."</p>
+        <div class="price-line">
+          <span class="price">1,990</span>
+          <span class="currency">SAR · ريال</span>
+        </div>
+        <p class="price-note">شامل الضريبة · One-time fee</p>
+        <ul class="deliverables">
+          <li>كل ما في باقة Refined</li>
+          <li>ثيم سلة مخصّص بالكامل (CSS + JS)</li>
+          <li>3 سكاشن مخصصة في الهوم</li>
+          <li>10 قطعة سوشال (بوستات + ستوريز)</li>
+          <li>أغلفة Highlights للإنستقرام</li>
+          <li>تصميم ملصق التغليف</li>
+          <li>قالب إيميل تسويقي</li>
+          <li>دليل البراند المصغّر (6 صفحات PDF)</li>
+          <li>استشارة هيكلة قوائم المتجر</li>
+          <li>دعم ما بعد التسليم 14 يوم</li>
+        </ul>
+        <div class="timeline-row">
+          <span><strong>7-10 أيام</strong> · DELIVERY</span>
+          <span><strong>3 جولات</strong> · REVISIONS</span>
+        </div>
+        <a href="https://wa.me/966596198999?text=السلام%20عليكم%20أبغى%20باقة%20Royal%20بـ%201990%20ر.س%20لتصميم%20متجر%20سلة" target="_blank" rel="noopener" class="cta">ابدأ الآن · Start</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="num">02</div>
+      <h2>The Process<span class="ar">المنهجية</span></h2>
+      <p class="sub">Five steps. Considered. Calm.</p>
+    </div>
+
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="num">01</div>
+        <div class="title">Discover</div>
+        <div class="title-ar">الاكتشاف</div>
+        <p class="desc">نتعرّف على البراند، الجمهور، والمنافسين. نختار اتجاه التصميم.</p>
+      </div>
+      <div class="process-step">
+        <div class="num">02</div>
+        <div class="title">Direct</div>
+        <div class="title-ar">التوجيه</div>
+        <p class="desc">نقترح الموود بورد والاتجاه البصري. تختار وتوافق.</p>
+      </div>
+      <div class="process-step">
+        <div class="num">03</div>
+        <div class="title">Design</div>
+        <div class="title-ar">التصميم</div>
+        <p class="desc">نصمم الواجهة، الكروت، البانرات، وقطع السوشال.</p>
+      </div>
+      <div class="process-step">
+        <div class="num">04</div>
+        <div class="title">Build</div>
+        <div class="title-ar">البناء</div>
+        <p class="desc">نطبّق التصاميم على متجرك في سلة ونضبط التفاصيل.</p>
+      </div>
+      <div class="process-step">
+        <div class="num">05</div>
+        <div class="title">Launch</div>
+        <div class="title-ar">الانطلاق</div>
+        <p class="desc">نراجع، نسلّم الملفات، ونتأكد أن كل شي شغّال تمام.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="compare">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="num">03</div>
+      <h2>Full Comparison<span class="ar">مقارنة تفصيلية</span></h2>
+    </div>
+
+    <div class="compare-table">
+      <table>
+        <thead>
+          <tr>
+            <th>المخرجات</th>
+            <th>Starter<span class="small">390 ر.س</span></th>
+            <th class="featured-col">Refined<span class="small">990 ر.س</span></th>
+            <th>Royal<span class="small">1,990 ر.س</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>تركيب قالب سلة</td><td><span class="check">✓</span></td><td class="featured-col"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+          <tr><td>تخصيص ألوان البراند</td><td><span class="check">✓</span></td><td class="featured-col"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+          <tr><td>تنسيق الشعار</td><td><span class="check">✓</span></td><td class="featured-col"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+          <tr><td>ضبط صفحات أساسية</td><td><span class="check">✓</span></td><td class="featured-col"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+          <tr><td>توافق الجوال</td><td><span class="check">✓</span></td><td class="featured-col"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+          <tr><td>بانرات للهوم</td><td>1</td><td class="featured-col">3</td><td>5+</td></tr>
+          <tr><td>تخصيص CSS متقدم</td><td><span class="dash">—</span></td><td class="featured-col"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+          <tr><td>تخصيص Product Card</td><td><span class="dash">—</span></td><td class="featured-col"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+          <tr><td>قوالب سوشال ميديا</td><td><span class="dash">—</span></td><td class="featured-col">5</td><td>10+</td></tr>
+          <tr><td>أغلفة Highlights</td><td><span class="dash">—</span></td><td class="featured-col"><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+          <tr><td>سكاشن مخصصة في الهوم</td><td><span class="dash">—</span></td><td class="featured-col"><span class="dash">—</span></td><td>3</td></tr>
+          <tr><td>ملصق تغليف</td><td><span class="dash">—</span></td><td class="featured-col"><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+          <tr><td>قالب إيميل تسويقي</td><td><span class="dash">—</span></td><td class="featured-col"><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+          <tr><td>دليل البراند PDF</td><td>1 صفحة</td><td class="featured-col">2 صفحات</td><td>6 صفحات</td></tr>
+          <tr><td>إرشادات تصوير المنتج</td><td><span class="dash">—</span></td><td class="featured-col"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+          <tr><td>استشارة هيكلة المتجر</td><td><span class="dash">—</span></td><td class="featured-col"><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+          <tr><td>مدة التسليم</td><td>3 أيام</td><td class="featured-col">5 أيام</td><td>7-10 أيام</td></tr>
+          <tr><td>جولات التعديل</td><td>1</td><td class="featured-col">2</td><td>3</td></tr>
+          <tr><td>دعم ما بعد التسليم</td><td><span class="dash">—</span></td><td class="featured-col">7 أيام</td><td>14 يوم</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ADDONS -->
+<section class="addons">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="num">04</div>
+      <h2>Add-Ons<span class="ar">إضافات À La Carte</span></h2>
+      <p class="sub">Strengthen any package with these.</p>
+    </div>
+
+    <div class="addons-grid">
+      <div class="addon">
+        <div class="name">تصميم شعار من الصفر<span class="sub">Logo Design</span></div>
+        <div class="price"><span class="unit">SAR</span>290</div>
+      </div>
+      <div class="addon">
+        <div class="name">5 قوالب سوشال إضافية<span class="sub">Social Pack +5</span></div>
+        <div class="price"><span class="unit">SAR</span>190</div>
+      </div>
+      <div class="addon">
+        <div class="name">بانر إضافي (تصميم واحد)<span class="sub">Extra Banner</span></div>
+        <div class="price"><span class="unit">SAR</span>90</div>
+      </div>
+      <div class="addon">
+        <div class="name">تصميم تغليف كامل<span class="sub">Packaging Suite</span></div>
+        <div class="price"><span class="unit">SAR</span>490</div>
+      </div>
+      <div class="addon">
+        <div class="name">جلسة استراتيجية براند (1 ساعة)<span class="sub">Strategy Session</span></div>
+        <div class="price"><span class="unit">SAR</span>250</div>
+      </div>
+      <div class="addon">
+        <div class="name">تسليم مستعجل (نصف المدة)<span class="sub">Rush Delivery</span></div>
+        <div class="price"><span class="unit">+</span>50%</div>
+      </div>
+      <div class="addon">
+        <div class="name">صفحة لاندنج بيج إضافية<span class="sub">Landing Page</span></div>
+        <div class="price"><span class="unit">SAR</span>350</div>
+      </div>
+      <div class="addon">
+        <div class="name">جولة تعديل إضافية<span class="sub">Extra Revision</span></div>
+        <div class="price"><span class="unit">SAR</span>150</div>
+      </div>
+      <div class="addon">
+        <div class="name">دليل براند موسّع (12 صفحة)<span class="sub">Extended Guide</span></div>
+        <div class="price"><span class="unit">SAR</span>390</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY SHAHEEN -->
+<section class="why">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="num">05</div>
+      <h2>Why Shaheen<span class="ar">ليش شاهين</span></h2>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="icon">✦</div>
+        <h4>Editorial Craft<span class="ar">حس تحريري</span></h4>
+        <p>كل قطعة مصممة بمعايير المطبوعات الفاخرة — تباعد، تيبوغرافي، وتفاصيل دقيقة.</p>
+      </div>
+      <div class="why-item">
+        <div class="icon">✦</div>
+        <h4>Salla Native<span class="ar">سلة هي بيتنا</span></h4>
+        <p>نعرف منصة سلة من الداخل — قوالبها، API، وأفضل الممارسات. لا توقعات مفاجئة.</p>
+      </div>
+      <div class="why-item">
+        <div class="icon">✦</div>
+        <h4>Bilingual First<span class="ar">عربي + إنجليزي</span></h4>
+        <p>كل التصاميم تخدم الـRTL والـLTR. الخط العربي يستحق نفس الاهتمام كالإنجليزي.</p>
+      </div>
+      <div class="why-item">
+        <div class="icon">✦</div>
+        <h4>Quiet Wealth<span class="ar">القوة الصامتة</span></h4>
+        <p>لا ضوضاء بصرية. كل عنصر له سبب وجوده. الفخامة في الانضباط.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="num">06</div>
+      <h2>FAQ<span class="ar">أسئلة شائعة</span></h2>
+    </div>
+
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="q">كم المدة من البداية للنهاية فعلياً؟</div>
+        <div class="a">المدد المذكورة من تسلّم البريف الكامل والمواد الأولية (شعار، صور منتج، نصوص). إذا تأخّر تسلّم المواد، يتأخّر العد. نوصي بتجهيز كل شي قبل ما نبدأ.</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">هل تستخدمون نفس القالب لكل العملاء؟</div>
+        <div class="a">لا. عندنا مجموعة قوالب أساسية، نختار الأنسب لقطاعك، وبعدها نخصصها 100% بألوان وخطوط وتفاصيل براندك. لا متجرين يطلعون بنفس الشكل.</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">ماذا لو احتجت تعديل بعد التسليم؟</div>
+        <div class="a">باقة Starter ما فيها دعم بعد التسليم. Refined: 7 أيام دعم مجاني. Royal: 14 يوم. بعد فترة الدعم، نعدّل بتعرفة الإضافات (150 ر.س لجولة).</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">هل الأسعار شاملة الضريبة؟</div>
+        <div class="a">نعم، كل الأسعار شاملة ضريبة القيمة المضافة 15%. ما فيه رسوم خفية.</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">كيف الدفع؟</div>
+        <div class="a">50% مقدّماً عند بدء المشروع، و50% عند التسليم النهائي. الدفع بنكي أو STC Pay أو مدى. نرسل فاتورة ضريبية رسمية.</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">هل ممكن أبدأ بـ Starter ثم أرقّي لاحقاً؟</div>
+        <div class="a">طبعاً. الفرق بين الباقتين يحتسب كرسوم ترقية، مع خصم 15% على الفرق إذا كانت الترقية خلال 90 يوم من التسليم الأول.</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">ماذا لو ما عجبني التصميم؟</div>
+        <div class="a">جولات التعديل في كل باقة هي لحل هذي الحالة. نعدّل حتى نوصل لشي يرضيك. إذا تعدّينا الجولات، نضيف جولة بـ 150 ر.س. نادراً نوصل لهذي النقطة.</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">هل تشتغلون مع براندات عبايات وأزياء؟</div>
+        <div class="a">نعم، هذا تخصصنا الأقوى. مديرنا الإبداعي يدير بنفسه عدة براندات لاكشري عبايات. نفهم القطاع من الداخل.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-final">
+  <div class="wrap">
+    <h3>
+      Let's Begin
+      <span class="ar">نبدأ المشروع؟</span>
+    </h3>
+    <p>"A clear brief today is a polished store next week."</p>
+    <a href="https://wa.me/966596198999?text=السلام%20عليكم%20أبغى%20أحجز%20استشارة%20لتصميم%20متجر%20سلة" target="_blank" rel="noopener" class="btn">احجز استشارة مجانية · Book Discovery</a>
+    <div class="contact">SHAHEEN · شاهين ديزاين · KSA</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="mini">© 2025 SHAHEEN DESIGN · شاهين ديزاين</div>
+    <div class="small">Salla Store Design Atelier · Jeddah, KSA</div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOATING BUTTON -->
+<a href="https://wa.me/966596198999?text=السلام%20عليكم%20أبغى%20أستفسر%20عن%20باقات%20تصميم%20متاجر%20سلة" target="_blank" rel="noopener" class="wa-float" aria-label="تواصل عبر واتساب">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M19.05 4.91A9.816 9.816 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01zm-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.264 8.264 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.183 8.183 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.37-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43s.17-.25.25-.41c.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18s-.22-.16-.47-.28z"/>
+  </svg>
+</a>
+
+</body>
+</html>
